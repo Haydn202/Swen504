@@ -54,17 +54,15 @@ import javafx.scene.text.Text;
 public class Main extends Application {
 	Timeline timeline = new Timeline();
 
-//	2909 Van adding frame for timeline
 	private double frameDuration = 100;
 
-// 	2909 Van adding some labels
+
 	private Text gridSizeLabel = new Text();// changed to text for better control
 	private Text frameDurationLabel = new Text();// changed to text for better control
 
-// 	2909 Van adding framecount
 	private int frameCount;
 
-// 	2909 Van adding display grid func with Chathura
+
 	private CircleList<CircleList<Life>> cellsList = new CircleList<CircleList<Life>>();
 	private Grid grid = new Grid(cellsList);
 	boolean running = false;
@@ -95,7 +93,7 @@ public class Main extends Application {
 	private ScrollPane scrollPane = new ScrollPane();
 	private GridPane gridPane = new GridPane();
 
-// 	3009 Van adding Slider
+
 	private Slider gridSizeSlider;
 	private Slider frameDurationSlider;
 	private int gridSize = 1;
@@ -301,10 +299,10 @@ public class Main extends Application {
 			displayPane.setPadding(new Insets(40, 25, 25, 25));
 			displayPane.getChildren().addAll(titleBox, gameBox, controlBox);
 
-//			2909 Van call displayGrid method
+
 			displayGrid();
 
-//			add that stage to the main stage
+
 			primaryStage.initStyle(StageStyle.UTILITY);
 			primaryStage.setScene(new Scene(displayPane, 1080, 680));
 			primaryStage.show();
@@ -313,7 +311,7 @@ public class Main extends Application {
 		}
 	}
 
-//	 Van reseting GridPane + Alexia code cleaning 	
+	
 	public void resetGridPane() {
 		gridPane.getChildren().clear();
 		gridPane.setPadding(Insets.EMPTY);
@@ -325,7 +323,7 @@ public class Main extends Application {
 		gridPane.setMaxSize(900, 400);
 	}
 
-//	2909 Van adding func for start btn
+
 	private void startGame() {
 		if (running == false) {
 			timeline = new Timeline(new KeyFrame(Duration.millis(frameDuration), e -> {
@@ -341,13 +339,13 @@ public class Main extends Application {
 		running = true;
 	}
 
-// 	2909 Van adding stop method
+
 	public void stopGame() {
 		timeline.stop();
 		running = false;
 	}
 
-//	2909 Van adding display grid func with Haydn
+	
 	public void displayGrid() {
 		resetGridPane();
 		CircleList<CircleList<Life>> g = grid.getGrid();
@@ -383,7 +381,7 @@ public class Main extends Application {
 		}
 	}
 
-//	0110 Van adding Save & Load method
+
 	public void saveShape(Stage primaryStage) {
 
 		try {
@@ -461,7 +459,6 @@ public class Main extends Application {
 		}
 	}
 
-//	0110 Van adding clear method
 	private void clear() {
 		frameCount = 0;
 		btnCounter.setText("" + frameCount + "");
@@ -512,7 +509,7 @@ public class Main extends Application {
 		};
 	}
 
-//	3009 Van adding SpeedChange Method for Slider
+
 	private ChangeListener<Number> speedChange() {
 		return (observable, oldValue, newValue) -> {
 			frameDuration = newValue.intValue();
